@@ -67,13 +67,12 @@ LDLIBS := \
 	z \
 	pthread \
 	atomic \
-	SDL2 \
 	GL \
 	GLEW \
 	storm \
 	pulse\
 	ultraship \
-) \
+) -Wl,-Bstatic -lSDL2 -Wl,-Bdynamic \
 
 ASSET_BIN_DIRS := $(shell find assets/* -type d -not -path "assets/xml*")
 ASSET_FILES_XML := $(foreach dir,$(ASSET_BIN_DIRS),$(wildcard $(dir)/*.xml))
